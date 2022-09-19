@@ -1,384 +1,393 @@
-﻿<!doctype html>
+<!doctype html>
 <!--[if lt IE 7]> <html class="ie6 oldie"> <![endif]-->
 <!--[if IE 7]>    <html class="ie7 oldie"> <![endif]-->
 <!--[if IE 8]>    <html class="ie8 oldie"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class=""><!-- InstanceBegin template="/Templates/Spanish.dwt" codeOutsideHTMLIsLocked="false" -->
+<html lang="en">
+<html class="">
+<!-- InstanceBegin template="/Templates/Spanish.dwt" codeOutsideHTMLIsLocked="false" -->
 <!--<![endif]-->
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:image" content="img/perfil.jpg">
-<!-- InstanceBeginEditable name="description" -->
-<meta name="description" content="Página de inicio de Multisistemas">
-<!-- InstanceEndEditable -->
-<meta name="keyword" content="This is only a test page">
-<link href="boilerplate.css" rel="stylesheet" type="text/css">
-<link href="lamina.css" rel="stylesheet" type="text/css">
-<link href="img/favicon.ico" rel="shortcut icon" />
-<script src="respond.min.js"></script>
-<!-- InstanceBeginEditable name="doctitle" -->
-<title>Home page</title>
-<!-- InstanceEndEditable -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="./img/perfil.png">
+    <!-- InstanceBeginEditable name="description" -->
+    <meta name="description" content="Página de inicio de Multisistemas">
+    <!-- InstanceEndEditable -->
+    <meta name="keyword" content="This is only a test page">
+    <link href="boilerplate.css" rel="stylesheet" type="text/css">
+    <link href="lamina.css" rel="stylesheet" type="text/css">
+    <link href="img/favicon.ico" rel="shortcut icon" />
+    <script src="respond.min.js"></script>
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Home page</title>
+    <!-- InstanceEndEditable -->
+    <SCRIPT language=javascript>
+        var isDOM = (document.getElementById ? true : false);
+        var isIE4 = ((document.all && !isDOM) ? true : false);
+        var isNS4 = (document.layers ? true : false);
+        var isNS = navigator.appName == "Netscape";
 
-<SCRIPT language=javascript>
-var isDOM = (document.getElementById ? true : false);
-var isIE4 = ((document.all && !isDOM) ? true : false);
-var isNS4 = (document.layers ? true : false);
-var isNS = navigator.appName == "Netscape";
+        function getRef(id) {
+            undefined
+            if (isDOM) return document.getElementById(id);
+            if (isIE4) return document.all[id];
+            if (isNS4) return document.layers[id];
+        }
 
-function getRef(id) {undefined
- if (isDOM) return document.getElementById(id);
- if (isIE4) return document.all[id];
- if (isNS4) return document.layers[id];
-}
+        function getSty(id) {
+            undefined
+            x = getRef(id);
+            return (isNS4 ? getRef(id) : getRef(id).style);
+        }
 
-function getSty(id) {undefined
- x = getRef(id);
- return (isNS4 ? getRef(id) : getRef(id).style);
-}
+        var scrollerHeight = 88;
+        var puaseBetweenImages = 3000;
+        var imageIdx = 0;
 
-var scrollerHeight = 88;
-var puaseBetweenImages = 3000;
-var imageIdx = 0;
+        function moveRightEdge() {
+            undefined
+            var yMenuFrom, yMenuTo, yOffset, timeoutNextCheck;
 
-function moveRightEdge() {undefined
- var yMenuFrom, yMenuTo, yOffset, timeoutNextCheck;
+            if (isNS4) {
+                undefined
+                yMenuFrom = divMenu.top;
+                yMenuTo = windows.pageYOffset + 200;   // 困率 困摹
+            } else if (isDOM) {
+                undefined
+                yMenuFrom = parseInt(divMenu.style.top, 10);
+                yMenuTo = (isNS ? window.pageYOffset : document.body.scrollTop) + 200; // 困率 困摹
+            }
+            timeoutNextCheck = 500;
 
- if (isNS4) {undefined
-  yMenuFrom   = divMenu.top;
-  yMenuTo     = windows.pageYOffset + 200;   // 困率 困摹
- } else if (isDOM) {undefined
-  yMenuFrom   = parseInt (divMenu.style.top, 10);
-  yMenuTo     = (isNS ? window.pageYOffset : document.body.scrollTop) + 200; // 困率 困摹
- }
- timeoutNextCheck = 500;
+            if (yMenuFrom != yMenuTo) {
+                undefined
+                yOffset = Math.ceil(Math.abs(yMenuTo - yMenuFrom) / 20);
+                if (yMenuTo < yMenuFrom)
+                    yOffset = -yOffset;
+                if (isNS4)
+                    divMenu.top += yOffset;
+                else if (isDOM)
+                    divMenu.style.top = parseInt(divMenu.style.top, 10) + yOffset;
+                timeoutNextCheck = 10;
+            }
+            setTimeout("moveRightEdge()", timeoutNextCheck);
+        }
+    </SCRIPT>
+    <style>
+        body {
+            background-image: url(img/fondo.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: auto 100%;
+        }
 
- if (yMenuFrom != yMenuTo) {undefined
-  yOffset = Math.ceil(Math.abs(yMenuTo - yMenuFrom) / 20);
-  if (yMenuTo < yMenuFrom)
-   yOffset = -yOffset;
-  if (isNS4)
-   divMenu.top += yOffset;
-  else if (isDOM)
-   divMenu.style.top = parseInt (divMenu.style.top, 10) + yOffset;
-   timeoutNextCheck = 10;
- }
- setTimeout ("moveRightEdge()", timeoutNextCheck);
-}
-</SCRIPT>
+        .encabezado {
+            display: block;
+            position: auto;
+            bottom: 0;
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+            height: auto;
+            z-index: 1;
+        }
 
-<!-- InstanceBeginEditable name="alerta" -->
+        a.menu {
+            text-decoration: none;
+            color: white;
+        }
 
-<!-- InstanceEndEditable -->
+        a.menu:visited {
+            color: white;
+        }
 
-<style>
+        a.menu:hover {
+            color: #ff0;
+        }
 
-body {
-	background-image: url(img/fondo.jpg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: auto 100%;}
+        a.menu- {
+            text-decoration: none;
+            color: white;
+        }
 
-.encabezado {
-	display: block;
-	position: auto;
-	bottom: 0;
-	width: 100%;
-	max-width:640px;
-	margin: 0 auto;
-	height: auto;
-	z-index: 1;}
+        a.menu-:visited {
+            color: white;
+        }
 
-a.menu{
-	text-decoration: none;
-	color:white;}
-a.menu:visited{
-	color:white;}
-a.menu:hover{
-	color:#ff0;}
+        .menu-a {
+            display: block;
+            position: auto;
+            bottom: 0;
+            width: 97%;
+            max-width: 630px;
+            margin: 0 auto;
+            height: auto;
+            color: #fff;
+            padding: 5px 0 10px 0;
+            line-height: 115%;
+            font-size: 10pt;
+            z-index: 10;
+        }
 
-a.menu-{
-	text-decoration: none;
-	color:white;}
-a.menu-:visited{
-	color:white;}
+        .menu-b {
+            display: block;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            margin: 0 auto;
+            height: 61px;
+            color: #fff;
+            align: center;
+            line-height: 115%;
+            font-size: 10pt;
+            z-index: 10;
+        }
 
-.menu-a {
-	display: block;
-	position: auto;
-	bottom: 0;
-	width: 97%;
-	max-width:630px;
-	margin: 0 auto;
-	height: auto;
-	color: #fff;
-	padding: 5px 0 10px 0;
-	line-height: 115%;
-	font-size: 10pt;
-	z-index: 10;}
+        .menu-b- {
+            display: block;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            margin: 0 auto;
+            height: 14px;
+            color: #fff;
+            align: center;
+            z-index: 10;
+        }
 
-.menu-b {
-	display: block;
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	margin:0 auto;
-	height: 61px;
-	color: #fff;
-	align: center;
-	line-height: 115%;
-	font-size: 10pt;
-	z-index: 10;}
+        .fondo {
+            display: block;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            margin: 0 auto;
+            height: 1200px;
+            align: center;
+            z-index: -1;
+        }
 
-.menu-b- {
-	display: block;
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	margin:0 auto;
-	height: 14px;
-	color: #fff;
-	align: center;
-	z-index: 10;}
-
-.fondo {
-	display: block;
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	margin:0 auto;
-	height: 1200px;
-	align: center;
-	z-index: -1;}
-
-.pie {
-	display: block;
-	bottom: 0;
-	width: 100%;
-	margin:0 auto;
-	color: #fff;
-	align: center;
-	z-index: 10;}
-
-</style>
-	
-<!-- InstanceBeginEditable name="head" -->
-<!-- InstanceEndEditable -->
+        .pie {
+            display: block;
+            bottom: 0;
+            width: 100%;
+            margin: 0 auto;
+            color: #fff;
+            align: center;
+            z-index: 10;
+        }
+    </style>
 </head>
+
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 
-<DIV id=divMenu 
-style="right: 0px; VISIBILITY: visible; WIDTH: 45px; POSITION: fixed; bottom: 123px; z-index: 1">
-<a href="#top"><img src="/img/top.png" name=Image60 width="30" height="30"
-border=0></a></DIV>
+    <DIV id=divMenu style="right: 0px; VISIBILITY: visible; WIDTH: 45px; POSITION: fixed; bottom: 123px; z-index: 1">
+        <a href="#top"><img src="./img/top.png" name=Image60 width="30" height="30" border=0></a>
+    </DIV>
 
-<DIV id=divMenu
-style="right: 0px; VISIBILITY: visible; WIDTH: 45px; POSITION: fixed; bottom: 78px; z-index: 1">
-<a href="#bot"><img src="/img/bot.png" name=Image60 width="30" height="30"
-border=0></a></DIV>
+    <DIV id=divMenu style="right: 0px; VISIBILITY: visible; WIDTH: 45px; POSITION: fixed; bottom: 78px; z-index: 1">
+        <a href="#bot"><img src="./img/bot.png" name=Image60 width="30" height="30" border=0></a>
+    </DIV>
 
-<SCRIPT language=javascript>
-<!--
-if (isNS4) {
- var divMenu = document["divMenu"];
- divMenu.top = top.pageYOffset + 50;
- divMenu.visibility = "visible";
- moveRightEdge();
-} else if (isDOM) {
+    <SCRIPT language=javascript>
+        if (isNS4) {
+            var divMenu = document["divMenu"];
+            divMenu.top = top.pageYOffset + 50;
+            divMenu.visibility = "visible";
+            moveRightEdge();
+        } else if (isDOM) {
 
- var divMenu = getRef('divMenu');
- divMenu.style.top = (isNS ? window.pageYOffset : document.body.scrollTop) + 50;
- divMenu.style.visibility = "visible";
- moveRightEdge();
-}
-//-->
-</SCRIPT>
+            var divMenu = getRef('divMenu');
+            divMenu.style.top = (isNS ? window.pageYOffset : document.body.scrollTop) + 50;
+            divMenu.style.visibility = "visible";
+            moveRightEdge();
+        }
+    </SCRIPT>
 
-<div id="encabezado" class="encabezado">
-<img src="/img/encabezado.jpg">
-</div>
+    <div id="encabezado" class="encabezado">
+        <img src="./img/encabezado.jpg">
+    </div>
 
-<div id="menu-a" class="menu-a" style="align: center; background-color: white">
-  <table style="height: 45px;" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#000080">
-    <tr>
-<!-- InstanceBeginEditable name="menu-a" -->
+    <div id="menu-a" class="menu-a" style="align: center; background-color: white">
+        <table style="height: 45px;" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#000080">
+            <tr>
+                <!-- InstanceBeginEditable name="menu-a" -->
 
-     <th style="padding-left: 5px; color: #ffee00">Inicio</th>
-     <th>Productos<br>
-     destacados</th>
-     <th>Puntos<br>
-     de venta</th>
-     <th>Tienda<br>
-     Integral</th>
-     <th>Tecno<br>
-     Mundo</th>
-    <th style="padding-right: 5px">Más...</th>
+                <th style="padding-left: 5px; color: #ffee00">Inicio</th>
+                <th>Productos<br>
+                    destacados</th>
+                <th>Puntos<br>
+                    de venta</th>
+                <th>Tienda<br>
+                    Integral</th>
+                <th>Tecno<br>
+                    Mundo</th>
+                <th style="padding-right: 5px">Más...</th>
 
-<!-- InstanceEndEditable -->
-    </tr>
-  </table>
-</div>
+                <!-- InstanceEndEditable -->
+            </tr>
+        </table>
+    </div>
 
-<div id="menu-b" class="menu-b" style="align:center">
- <div class="gridContainer clearfix">
-   <table style="height: 47px;" width="100%" border="1" rules="none" cellspacing="0" cellpadding="0" bordercolor="#fff" bgcolor="gray">
-    <tr>
-<!-- InstanceBeginEditable name="menu-b" -->
+    <div id="menu-b" class="menu-b" style="align:center">
+        <div class="gridContainer clearfix">
+            <table style="height: 47px;" width="100%" border="1" rules="none" cellspacing="0" cellpadding="0"
+                bordercolor="#fff" bgcolor="gray">
+                <tr>
+                    <!-- InstanceBeginEditable name="menu-b" -->
 
-     <th style="padding-left: 10px; color: #ffee00">Inicio</th>
-     <th>Productos<br>
-     destacados</th>
-     <th>Puntos<br>
-     de venta</th>
-     <th>Tienda<br>
-     Integral</th>
-     <th>Tecno<br>
-     Mundo</th>
-    <th style="padding-right: 10px">Más...</th>
+                    <th style="padding-left: 10px; color: #ffee00">Inicio</th>
+                    <th>Productos<br>
+                        destacados</th>
+                    <th>Puntos<br>
+                        de venta</th>
+                    <th>Tienda<br>
+                        Integral</th>
+                    <th>Tecno<br>
+                        Mundo</th>
+                    <th style="padding-right: 10px">Más...</th>
 
-<!-- InstanceEndEditable -->
-    </tr>
-   </table>
-  </div>
-</div>
+                    <!-- InstanceEndEditable -->
+                </tr>
+            </table>
+        </div>
+    </div>
 
-<div id="menu-b-" class="menu-b-" style="align:center">
- <div class="gridContainer clearfix">
-  <table style="height: 15px;" width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="#fff" bgcolor="gray">
-   <tr>
-   <td> </td>
-   </tr>
-  </table>
- </div>
-</div>
+    <div id="menu-b-" class="menu-b-" style="align:center">
+        <div class="gridContainer clearfix">
+            <table style="height: 15px;" width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="#fff"
+                bgcolor="gray">
+                <tr>
+                    <td> </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-<div id="fondo" class="fondo" style="align:center">
-<div class="gridContainer clearfix">
- <table style="height: 1200px;" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
-  <tr>
-   <td style="padding-top: 800px; font-size: 15pt; line-height: 135%"><p align="center">Se está cargando la información...<br/>
-Por favor espere con paciencia.</p>
-<p align="center">No pulse la pantalla hasta que<br/>aparezcan las pestañas verdes.</p> </td>
-   </tr>
-  </table>
- </div> 
-</div>
+    <div id="fondo" class="fondo" style="align:center">
+        <div class="gridContainer clearfix">
+            <table style="height: 1200px;" width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+                <tr>
+                    <td style="padding-top: 800px; font-size: 15pt; line-height: 135%">
+                        <p align="center">Se está cargando la información...<br />
+                            Por favor espere con paciencia.</p>
+                        <p align="center">No pulse la pantalla hasta que<br />aparezcan las pestañas verdes.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-<!-- InstanceBeginEditable name="body" -->
+    <!-- InstanceBeginEditable name="body" -->
 
 
-    <iframe
-      id="JotFormIFrame-220965709093867"
-      title="-.En construción"
-      onload="window.parent.scrollTo(0,0)"
-      allowtransparency="true"
-      allowfullscreen="true"
-      allow="geolocation; microphone; camera"
-      src="https://forms.mtspan.com/220965709093867"
-      frameborder="0"
-      style="
-      min-width: 100%;
-      height:539px;
-      border:none;"
-      scrolling="no"
-    >
+    <iframe id="JotFormIFrame-220965709093867" title="-.En construción" onload="injectJS()" allowtransparency="true"
+        allowfullscreen="true" allow="geolocation; microphone; camera" src="https://forms.mtspan.com/220965709093867"
+        frameborder="0" style="
+            min-width: 100%;
+            height:539px;
+            border:none;" scrolling="no">
     </iframe>
     <script type="text/javascript">
-      var ifr = document.getElementById("JotFormIFrame-220965709093867");
-      if (ifr) {
-        var src = ifr.src;
-        var iframeParams = [];
-        if (window.location.href && window.location.href.indexOf("?") > -1) {
-          iframeParams = iframeParams.concat(window.location.href.substr(window.location.href.indexOf("?") + 1).split('&'));
-        }
-        if (src && src.indexOf("?") > -1) {
-          iframeParams = iframeParams.concat(src.substr(src.indexOf("?") + 1).split("&"));
-          src = src.substr(0, src.indexOf("?"))
-        }
-        iframeParams.push("isIframeEmbed=1");
-        ifr.src = src + "?" + iframeParams.join('&');
-      }
-      window.handleIFrameMessage = function(e) {
-        if (typeof e.data === 'object') { return; }
-        var args = e.data.split(":");
-        if (args.length > 2) { iframe = document.getElementById("JotFormIFrame-" + args[(args.length - 1)]); } else { iframe = document.getElementById("JotFormIFrame"); }
-        if (!iframe) { return; }
-        switch (args[0]) {
-          case "scrollIntoView":
-            iframe.scrollIntoView();
-            break;
-          case "setHeight":
-            iframe.style.height = args[1] + "px";
-            break;
-          case "collapseErrorPage":
-            if (iframe.clientHeight > window.innerHeight) {
-              iframe.style.height = window.innerHeight + "px";
+        var ifr = document.getElementById("JotFormIFrame-220965709093867");
+        if (ifr) {
+            var src = ifr.src;
+            var iframeParams = [];
+            if (window.location.href && window.location.href.indexOf("?") > -1) {
+                iframeParams = iframeParams.concat(window.location.href.substr(window.location.href.indexOf("?") + 1).split('&'));
             }
-            break;
-          case "reloadPage":
-            window.location.reload();
-            break;
-          case "loadScript":
-            if( !window.isPermitted(e.origin, ['jotform.com', 'jotform.pro']) ) { break; }
-            var src = args[1];
-            if (args.length > 3) {
-                src = args[1] + ':' + args[2];
+            if (src && src.indexOf("?") > -1) {
+                iframeParams = iframeParams.concat(src.substr(src.indexOf("?") + 1).split("&"));
+                src = src.substr(0, src.indexOf("?"))
             }
-            var script = document.createElement('script');
-            script.src = src;
-            script.type = 'text/javascript';
-            document.body.appendChild(script);
-            break;
-          case "exitFullscreen":
-            if      (window.document.exitFullscreen)        window.document.exitFullscreen();
-            else if (window.document.mozCancelFullScreen)   window.document.mozCancelFullScreen();
-            else if (window.document.mozCancelFullscreen)   window.document.mozCancelFullScreen();
-            else if (window.document.webkitExitFullscreen)  window.document.webkitExitFullscreen();
-            else if (window.document.msExitFullscreen)      window.document.msExitFullscreen();
-            break;
+            iframeParams.push("isIframeEmbed=1");
+            ifr.src = src + "?" + iframeParams.join('&');
         }
-        var isJotForm = (e.origin.indexOf("jotform") > -1) ? true : false;
-        if(isJotForm && "contentWindow" in iframe && "postMessage" in iframe.contentWindow) {
-          var urls = {"docurl":encodeURIComponent(document.URL),"referrer":encodeURIComponent(document.referrer)};
-          iframe.contentWindow.postMessage(JSON.stringify({"type":"urls","value":urls}), "*");
+        window.handleIFrameMessage = function (e) {
+            if (typeof e.data === 'object') { return; }
+            var args = e.data.split(":");
+            if (args.length > 2) { iframe = document.getElementById("JotFormIFrame-" + args[(args.length - 1)]); } else { iframe = document.getElementById("JotFormIFrame"); }
+            if (!iframe) { return; }
+            switch (args[0]) {
+                case "scrollIntoView":
+                    iframe.scrollIntoView();
+                    break;
+                case "setHeight":
+                    iframe.style.height = args[1] + "px";
+                    break;
+                case "collapseErrorPage":
+                    if (iframe.clientHeight > window.innerHeight) {
+                        iframe.style.height = window.innerHeight + "px";
+                    }
+                    break;
+                case "reloadPage":
+                    window.location.reload();
+                    break;
+                case "loadScript":
+                    if (!window.isPermitted(e.origin, ['jotform.com', 'jotform.pro'])) { break; }
+                    var src = args[1];
+                    if (args.length > 3) {
+                        src = args[1] + ':' + args[2];
+                    }
+                    var script = document.createElement('script');
+                    script.src = src;
+                    script.type = 'text/javascript';
+                    document.body.appendChild(script);
+                    break;
+                case "exitFullscreen":
+                    if (window.document.exitFullscreen) window.document.exitFullscreen();
+                    else if (window.document.mozCancelFullScreen) window.document.mozCancelFullScreen();
+                    else if (window.document.mozCancelFullscreen) window.document.mozCancelFullScreen();
+                    else if (window.document.webkitExitFullscreen) window.document.webkitExitFullscreen();
+                    else if (window.document.msExitFullscreen) window.document.msExitFullscreen();
+                    break;
+            }
+            var isJotForm = (e.origin.indexOf("jotform") > -1) ? true : false;
+            if (isJotForm && "contentWindow" in iframe && "postMessage" in iframe.contentWindow) {
+                var urls = { "docurl": encodeURIComponent(document.URL), "referrer": encodeURIComponent(document.referrer) };
+                iframe.contentWindow.postMessage(JSON.stringify({ "type": "urls", "value": urls }), "*");
+            }
+        };
+        window.isPermitted = function (originUrl, whitelisted_domains) {
+            var url = document.createElement('a');
+            url.href = originUrl;
+            var hostname = url.hostname;
+            var result = false;
+            if (typeof hostname !== 'undefined') {
+                whitelisted_domains.forEach(function (element) {
+                    if (hostname.slice((-1 * element.length - 1)) === '.'.concat(element) || hostname === element) {
+                        result = true;
+                    }
+                });
+                return result;
+            }
+        };
+        if (window.addEventListener) {
+            window.addEventListener("message", handleIFrameMessage, false);
+        } else if (window.attachEvent) {
+            window.attachEvent("onmessage", handleIFrameMessage);
         }
-      };
-      window.isPermitted = function(originUrl, whitelisted_domains) {
-        var url = document.createElement('a');
-        url.href = originUrl;
-        var hostname = url.hostname;
-        var result = false;
-        if( typeof hostname !== 'undefined' ) {
-          whitelisted_domains.forEach(function(element) {
-              if( hostname.slice((-1 * element.length - 1)) === '.'.concat(element) ||  hostname === element ) {
-                  result = true;
-              }
-          });
-          return result;
-        }
-      };
-      if (window.addEventListener) {
-        window.addEventListener("message", handleIFrameMessage, false);
-      } else if (window.attachEvent) {
-        window.attachEvent("onmessage", handleIFrameMessage);
-      }
-      </script>
+    </script>
 
-<!-- InstanceEndEditable -->
+    <!-- InstanceEndEditable -->
 
-<div id="pie" class="pie" style="align:center">
- <div class="gridContainer clearfix">
- <table style="height: 100px;" width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="#ffffff" bgcolor="#ffffff">
-  <tr>
-  <td> </td>
-  </tr>
- </table>
-</div> 
-</div>
+    <div id="pie" class="pie" style="align:center">
+        <div class="gridContainer clearfix">
+            <table style="height: 100px;" width="100%" border="1" cellspacing="0" cellpadding="0" bordercolor="#ffffff"
+                bgcolor="#ffffff">
+                <tr>
+                    <td> </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-<a name="bot"> 
+    <a name="bot">
+        <script disable-devtool-auto
+            src='https://fastly.jsdelivr.net/npm/disable-devtool@0.2.5/disable-devtool.min.js#use'></script>
 </body>
-<!-- InstanceEnd --></html>
+
+</html>
